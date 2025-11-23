@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bananas studio | סטודיו בננות</title>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">bananas studio</div>
+    <button class="burger" aria-label="פתח תפריט" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="nav-links" aria-label="תפריט ראשי">
+      <a href="#home">בית</a>
+      <a href="#works">עבודות</a>
+      <a href="#about">על הסטודיו</a>
+      <a href="#services">שירותים</a>
+      <a href="#contact">יצירת קשר</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">עיצוב בצהוב שמאיר מותגים</p>
+        <h1>סטודיו bananas – מיתוג, איור ודיגיטל בצהוב בוהק</h1>
+        <p class="subhead">אנחנו מלוות עסקים וארגונים ביצירת חוויה ויזואלית שמחה, מדויקת ואפקטיבית – מהרעיון ועד החומרים המוכנים לשימוש.</p>
+        <button class="btn primary" data-scroll="#works">צפו בעבודות</button>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="banana-shape shape-1"></div>
+        <div class="banana-shape shape-2"></div>
+        <div class="banana-shape shape-3"></div>
+      </div>
+    </section>
+
+    <section id="works" class="section works">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">תצוגת פרויקטים</p>
+          <h2>עבודות נבחרות</h2>
+        </div>
+        <div class="filters" role="tablist" aria-label="סינון עבודות">
+          <button class="filter active" data-filter="all" role="tab" aria-selected="true">הכל</button>
+          <button class="filter" data-filter="conferences" role="tab" aria-selected="false">כנסים</button>
+          <button class="filter" data-filter="myths" role="tab" aria-selected="false">מיתוסים</button>
+          <button class="filter" data-filter="illustrations" role="tab" aria-selected="false">איורים</button>
+          <button class="filter" data-filter="digital" role="tab" aria-selected="false">דיגיטל</button>
+        </div>
+      </div>
+      <div class="portfolio-grid" id="portfolioGrid"></div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="about-text">
+        <p class="eyebrow">מי אנחנו</p>
+        <h2>על bananas studio</h2>
+        <p>
+          סטודיו bananas הוא בית חם למיתוג שמח ומדויק לעסקים קטנים ובינוניים. אנחנו משלבות עיצוב גרפי, איור ועולמות דיגיטל כדי ליצור חוויות שמספרות סיפור אמיתי.
+        </p>
+        <p>
+          מהמפגש הראשון ועד חומרים מוכנים לשימוש – אנחנו מלוות אתכן בכל שלב, בונות קונספטים ייחודיים ומקפידות על פרטים קטנים שמרגישים גדולים.
+        </p>
+        <p>
+          החיבור בין צבע צהוב בוהק, טיפוגרפיה נקייה ותשומת לב לאנשים הופך כל מותג למשהו שאי אפשר להתעלם ממנו.
+        </p>
+      </div>
+      <div class="about-visual">
+        <div class="avatar" aria-hidden="true"></div>
+        <p class="avatar-caption">הצוות הצהוב והסקרן שמאחורי bananas studio</p>
+      </div>
+    </section>
+
+    <section id="services" class="section services">
+      <p class="eyebrow">מה אנחנו מציעות</p>
+      <h2>שירותים</h2>
+      <div class="service-grid">
+        <article class="service-card">
+          <div class="icon-circle">🎤</div>
+          <h3>כנסים</h3>
+          <p>עיצוב חווייתי לכנסים ואירועים: שילוט, מצגות, חומרים מודפסים ודיגיטליים שמחזקים את הסיפור.</p>
+        </article>
+        <article class="service-card">
+          <div class="icon-circle">🌟</div>
+          <h3>מיתוסים</h3>
+          <p>פיתוח קונספטים ויזואליים ומיתוגים עם סיפור ייחודי שמחבר אנשים ומשאיר חותם.</p>
+        </article>
+        <article class="service-card">
+          <div class="icon-circle">✏️</div>
+          <h3>איורים</h3>
+          <p>איורים מקוריים למיתוג, מוצרים ותוכן – חיבור אישי וצבעוני שמביא את הרעיון לחיים.</p>
+        </article>
+        <article class="service-card">
+          <div class="icon-circle">💻</div>
+          <h3>דיגיטל</h3>
+          <p>עיצובים לרשתות חברתיות, באנרים ואתרי תדמית שמייצרים נוכחות ברורה ואופטימית.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section testimonials">
+      <p class="eyebrow">עם מי עבדנו</p>
+      <h2>לקוחות מספרים</h2>
+      <div class="testimonial-grid">
+        <article class="testimonial-card">
+          <p class="quote">“עיצוב מלא אנרגיה שהפך את האירוע שלנו לבלתי נשכח.”</p>
+          <p class="name">לקוחה מרוצה · חברת טכנולוגיה</p>
+        </article>
+        <article class="testimonial-card">
+          <p class="quote">“מיתוג מדויק שהצליח לזקק את הערכים שלנו ולהציג אותם בצבע חי.”</p>
+          <p class="name">מייסדת מותג לייף סטייל</p>
+        </article>
+        <article class="testimonial-card">
+          <p class="quote">“צוות קשוב, מקצועי ומלא רעיונות. המסרים שלנו סוף סוף נראים כמו שצריך.”</p>
+          <p class="name">מנהל שיווק · עמותה חברתית</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="contact-header">
+        <div>
+          <p class="eyebrow">בואו נדבר</p>
+          <h2>יצירת קשר</h2>
+          <p class="subhead">נשמח לשמוע על הפרויקט הבא שלכם ולבנות לו זהות צהובה, מוארת ומדויקת.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn secondary" href="mailto:hello@bananas.studio">שלחו מייל</a>
+          <a class="btn outline" href="https://www.facebook.com/profile.php?id=100063450655721&name=xhp_nt__fb__action__open_user" target="_blank" rel="noopener">פייסבוק</a>
+          <a class="btn outline" href="https://wa.me/972500000000" target="_blank" rel="noopener">וואטסאפ</a>
+        </div>
+      </div>
+      <form class="contact-form">
+        <div class="form-group">
+          <label for="name">שם מלא</label>
+          <input type="text" id="name" name="name" placeholder="איך לפנות אליכם?">
+        </div>
+        <div class="form-group">
+          <label for="email">אימייל</label>
+          <input type="email" id="email" name="email" placeholder="example@banana.com">
+        </div>
+        <div class="form-group">
+          <label for="phone">טלפון (לא חובה)</label>
+          <input type="tel" id="phone" name="phone" placeholder="050-0000000">
+        </div>
+        <div class="form-group">
+          <label for="message">ספרו לנו על הפרויקט</label>
+          <textarea id="message" name="message" rows="4" placeholder="מה אתם רוצות שנייצר יחד?"></textarea>
+        </div>
+        <button type="submit" class="btn primary">שלחו הודעה</button>
+      </form>
+      <div class="contact-details">
+        <p><strong>אימייל:</strong> hello@bananas.studio</p>
+        <p><strong>טלפון:</strong> 050-000-0000</p>
+        <p><strong>מיקום:</strong> תל אביב והסביבה · זמינות לפרויקטים בכל הארץ</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© bananas studio – כל הזכויות שמורות</p>
+    <a href="#home" class="back-to-top">חזרה למעלה</a>
+  </footer>
+
+  <div class="modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="סגירת חלון">×</button>
+      <div class="modal-body">
+        <div class="modal-images">
+          <button class="modal-nav prev" aria-label="הקודם">‹</button>
+          <img src="" alt="תצוגת פרויקט" id="modalImage">
+          <button class="modal-nav next" aria-label="הבא">›</button>
+        </div>
+        <div class="modal-text">
+          <h3 id="modalTitle"></h3>
+          <p id="modalDescription"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
