@@ -1,2 +1,0 @@
-# bananas-web
-Bananas website
