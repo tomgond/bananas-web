@@ -3,7 +3,7 @@
 :root {
   --banana: #ffd300;
   --banana-soft: #ffe14a;
-  --ink: #000000;
+  --ink: #000007;
   --ink-soft: #111111;
   --paper: #f7f7f7;
   --text: #ffffff;
@@ -59,11 +59,17 @@ header.site-header {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 0;
   text-decoration: none;
   color: var(--banana);
   font-weight: 700;
   letter-spacing: 0.04em;
+}
+
+.brand-logo {
+  display: block;
+  height: 48px;
+  width: auto;
 }
 
 .brand-mark {
@@ -120,9 +126,22 @@ nav.primary-nav a:focus-visible {
 }
 
 .page {
-  padding: 32px 22px 64px;
+  padding: 0 22px 64px;
   max-width: 1240px;
   margin: 0 auto;
+}
+
+.logo-block {
+  width: 100vw;
+  max-width: none;
+  margin: 0 calc(-50vw + 50%) 32px;
+  padding: 0;
+}
+
+.logo-block img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .hero {
@@ -193,15 +212,19 @@ nav.primary-nav a:focus-visible {
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 260px));
   gap: 16px;
+  justify-content: center;
+  max-width: 980px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .tile {
   position: relative;
   display: block;
   aspect-ratio: 1 / 1;
-  border-radius: 18px;
+  border-radius: 0;
   overflow: hidden;
   background: var(--ink-soft);
   border: 1px solid rgba(255, 211, 0, 0.25);
@@ -219,6 +242,7 @@ nav.primary-nav a:focus-visible {
   transition: transform var(--transition);
   transform: scale(1.02);
   z-index: 0;
+  border-radius: 0;
 }
 
 .tile::after {
@@ -230,6 +254,7 @@ nav.primary-nav a:focus-visible {
   opacity: 0;
   transition: opacity var(--transition), background var(--transition);
   z-index: 1;
+  border-radius: 0;
 }
 
 .tile:hover::after,
@@ -249,7 +274,7 @@ nav.primary-nav a:focus-visible {
   background: rgba(0, 0, 0, 0.6);
   color: var(--text);
   padding: 10px 12px;
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid rgba(255, 211, 0, 0.4);
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -398,6 +423,7 @@ form.contact-form {
     opacity: 0;
     transform: translateY(8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -408,6 +434,7 @@ form.contact-form {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
