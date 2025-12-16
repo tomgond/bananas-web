@@ -152,10 +152,15 @@ nav.primary-nav a:focus-visible {
   max-width: none;
   margin: 0 calc(-50vw + 50%) 32px;
   padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  background: #ffffff;
 }
 
 .logo-block img {
-  width: 100%;
+  width: auto;
+  max-width: 90vw;
+  max-height: 320px;
   height: auto;
   display: block;
 }
@@ -269,10 +274,8 @@ nav.primary-nav a:focus-visible {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.55)),
-    var(--tile-bg, linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)));
-  transition: opacity var(--transition), transform var(--transition);
+  background: transparent;
+  transition: transform var(--transition);
   transform: scale(1.02);
   z-index: 1;
 }
@@ -281,17 +284,15 @@ nav.primary-nav a:focus-visible {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.45), transparent 45%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55));
+  background: transparent;
   opacity: 0;
-  transition: opacity var(--transition), background var(--transition);
+  transition: opacity var(--transition);
   z-index: 2;
 }
 
 .tile:hover::after,
 .tile:focus-visible::after {
-  opacity: 1;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55));
+  opacity: 0;
 }
 
 .tile:hover::before,
@@ -502,5 +503,14 @@ form.contact-form {
   .section-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .logo-block {
+    padding: 0;
+  }
+
+  .logo-block img {
+    max-height: 200px;
+    max-width: 94vw;
   }
 }
