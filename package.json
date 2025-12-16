@@ -1,0 +1,21 @@
+{
+  "name": "bananas-web",
+  "version": "0.1.0",
+  "description": "Build tools for optimizing Bananas portfolio assets",
+  "main": "index.js",
+  "scripts": {
+    "convert-images": "node scripts/convert-images.js",
+    "report-images": "node scripts/report-image-sizes.js",
+    "report-images-ps": "pwsh scripts/report-image-sizes.ps1"
+  },
+  "keywords": [
+    "portfolio",
+    "images",
+    "optimization"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
+}
