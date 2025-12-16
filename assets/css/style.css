@@ -157,7 +157,7 @@ nav.primary-nav a:focus-visible {
 }
 
 .logo-block img {
-  width: 100%;
+  width: auto;
   max-width: 100%;
   max-height: 320px;
   height: auto;
@@ -523,5 +523,20 @@ form.contact-form {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 6px;
     max-width: 100%;
+  }
+}
+
+@media (min-width: 861px) {
+  .logo-block {
+    width: 100vw;
+    max-width: none;
+    margin: 0 calc(-50vw + 50%) 32px;
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  .logo-block img {
+    max-height: 240px;
+    max-width: none;
   }
 }
