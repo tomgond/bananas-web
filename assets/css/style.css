@@ -128,7 +128,6 @@ nav.primary-nav a:hover,
 nav.primary-nav a:focus-visible {
   color: var(--ink);
   background: var(--banana);
-  transform: translateY(-2px);
 }
 
 .menu-toggle {
@@ -148,9 +147,9 @@ nav.primary-nav a:focus-visible {
 }
 
 .logo-block {
-  width: 100vw;
-  max-width: none;
-  margin: 0 calc(-50vw + 50%) 32px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 32px;
   padding: 0;
   display: flex;
   justify-content: flex-start;
@@ -158,8 +157,8 @@ nav.primary-nav a:focus-visible {
 }
 
 .logo-block img {
-  width: auto;
-  max-width: 90vw;
+  width: 100%;
+  max-width: 100%;
   max-height: 320px;
   height: auto;
   display: block;
@@ -443,7 +442,6 @@ form.contact-form {
 
 .fade-enter {
   opacity: 0;
-  transform: translateY(8px);
   animation: fadeIn 420ms ease forwards;
 }
 
@@ -454,12 +452,10 @@ form.contact-form {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(8px);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -474,6 +470,11 @@ form.contact-form {
 }
 
 @media (max-width: 860px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
   nav.primary-nav {
     display: none;
     position: absolute;
@@ -510,7 +511,17 @@ form.contact-form {
   }
 
   .logo-block img {
-    max-height: 200px;
-    max-width: 94vw;
+    max-height: 180px;
+    max-width: 100%;
+  }
+
+  .page {
+    padding: 0 10px 48px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 6px;
+    max-width: 100%;
   }
 }
