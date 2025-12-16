@@ -29,6 +29,22 @@ body {
   scroll-behavior: smooth;
 }
 
+body.page-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body.page-shell .page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+body.page-shell .footer {
+  margin-top: auto;
+}
+
 a {
   color: inherit;
 }
@@ -224,25 +240,41 @@ nav.primary-nav a:focus-visible {
   position: relative;
   display: block;
   aspect-ratio: 1 / 1;
-  border-radius: 0;
   overflow: hidden;
   background: var(--ink-soft);
-  border: 1px solid rgba(255, 211, 0, 0.25);
+  border: none;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   text-decoration: none;
   color: var(--text);
   isolation: isolate;
 }
 
+.tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition), filter var(--transition);
+  z-index: 0;
+}
+
+.tile:hover img,
+.tile:focus-visible img {
+  transform: scale(1.04);
+  filter: saturate(1.05);
+}
+
 .tile::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--tile-bg, linear-gradient(135deg, rgba(255, 211, 0, 0.15), rgba(0, 0, 0, 0.65)));
-  transition: transform var(--transition);
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.55)),
+    var(--tile-bg, linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)));
+  transition: opacity var(--transition), transform var(--transition);
   transform: scale(1.02);
-  z-index: 0;
-  border-radius: 0;
+  z-index: 1;
 }
 
 .tile::after {
@@ -253,19 +285,19 @@ nav.primary-nav a:focus-visible {
     linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55));
   opacity: 0;
   transition: opacity var(--transition), background var(--transition);
-  z-index: 1;
-  border-radius: 0;
+  z-index: 2;
 }
 
 .tile:hover::after,
 .tile:focus-visible::after {
   opacity: 1;
-  background: linear-gradient(180deg, rgba(255, 211, 0, 0.35), rgba(0, 0, 0, 0.55));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55));
 }
 
 .tile:hover::before,
 .tile:focus-visible::before {
   transform: scale(1.05);
+  opacity: 0.85;
 }
 
 .tile .tile-label {
@@ -278,7 +310,7 @@ nav.primary-nav a:focus-visible {
   border: 1px solid rgba(255, 211, 0, 0.4);
   font-weight: 700;
   letter-spacing: 0.04em;
-  z-index: 2;
+  z-index: 3;
 }
 
 .tile .chip {
