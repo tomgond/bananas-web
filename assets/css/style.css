@@ -3,7 +3,7 @@
 :root {
   --banana: #ffd300;
   --banana-soft: #ffe14a;
-  --ink: #000007;
+  --ink: #b7b8b6;
   --ink-soft: #111111;
   --paper: #f7f7f7;
   --text: #ffffff;
@@ -58,7 +58,7 @@ header.site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.9);
+  background: #000000;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 211, 0, 0.3);
 }
@@ -117,17 +117,16 @@ nav.primary-nav a {
   text-decoration: none;
   color: var(--text);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.855rem;
   padding: 8px 10px;
   border-radius: 10px;
   letter-spacing: 0.02em;
-  transition: color var(--transition), background var(--transition), transform var(--transition);
+  transition: color var(--transition), transform var(--transition);
 }
 
 nav.primary-nav a:hover,
 nav.primary-nav a:focus-visible {
-  color: var(--ink);
-  background: var(--banana);
+  color: var(--banana);
 }
 
 .menu-toggle {
@@ -146,22 +145,12 @@ nav.primary-nav a:focus-visible {
   margin: 0 auto;
 }
 
-.logo-block {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 0 32px;
-  padding: 0;
-  display: flex;
-  justify-content: flex-start;
-  background: #ffffff;
-}
-
-.logo-block img {
-  width: auto;
-  max-width: 100%;
-  max-height: 320px;
-  height: auto;
+.main-logo {
   display: block;
+  width: 100vw;
+  max-width: none;
+  height: auto;
+  margin: 0 calc(-50vw + 50%) 32px;
 }
 
 .hero {
@@ -232,20 +221,21 @@ nav.primary-nav a:focus-visible {
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 260px));
-  gap: 16px;
-  justify-content: center;
-  max-width: 980px;
-  margin: 0 auto;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  justify-content: stretch;
   width: 100%;
+  max-width: 1240px;
+  margin: 18px auto 0;
 }
 
 .tile {
   position: relative;
   display: block;
   aspect-ratio: 1 / 1;
+  min-height: 280px;
   overflow: hidden;
-  background: var(--ink-soft);
+  background: var(--tile-bg, var(--ink-soft));
   border: none;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   text-decoration: none;
@@ -283,7 +273,7 @@ nav.primary-nav a:focus-visible {
   content: '';
   position: absolute;
   inset: 0;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.5);
   opacity: 0;
   transition: opacity var(--transition);
   z-index: 2;
@@ -291,7 +281,7 @@ nav.primary-nav a:focus-visible {
 
 .tile:hover::after,
 .tile:focus-visible::after {
-  opacity: 0;
+  opacity: 1;
 }
 
 .tile:hover::before,
@@ -300,17 +290,34 @@ nav.primary-nav a:focus-visible {
   opacity: 0.85;
 }
 
+.tile:hover .tile-label,
+.tile:focus-visible .tile-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (hover: none) {
+  .tile .tile-label {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .tile .tile-label {
   position: absolute;
-  inset: auto 12px 12px 12px;
-  background: rgba(0, 0, 0, 0.6);
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  background: transparent;
   color: var(--text);
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 211, 0, 0.4);
   font-weight: 700;
   letter-spacing: 0.04em;
   z-index: 3;
+  opacity: 0;
+  transform: translateY(8px);
+  text-align: center;
+  transition: opacity var(--transition), transform var(--transition);
 }
 
 .tile .chip {
@@ -470,6 +477,7 @@ form.contact-form {
 }
 
 @media (max-width: 860px) {
+
   html,
   body {
     overflow-x: hidden;
@@ -506,37 +514,23 @@ form.contact-form {
     align-items: flex-start;
   }
 
-  .logo-block {
-    padding: 0;
-  }
-
-  .logo-block img {
-    max-height: 180px;
-    max-width: 100%;
-  }
-
   .page {
     padding: 0 10px 48px;
   }
 
   .portfolio-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 6px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
     max-width: 100%;
+    margin: 12px 0 0;
   }
 }
 
 @media (min-width: 861px) {
-  .logo-block {
+  .main-logo {
     width: 100vw;
     max-width: none;
     margin: 0 calc(-50vw + 50%) 32px;
-    padding: 0;
-    justify-content: flex-start;
-  }
-
-  .logo-block img {
-    max-height: 240px;
-    max-width: none;
   }
 }
