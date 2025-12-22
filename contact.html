@@ -3,48 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact · Bananas Portfolio</title>
+  <title>Contact · Bananas V2</title>
   <link rel="icon" type="image/jpeg" href="images/main/logo-B.jpg">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="page-shell">
-  <header class="site-header">
-    <div class="header-inner">
-            <a class="brand" href="index.html">
-        <img class="brand-logo" src="images/main/main-logo-icon.avif" alt="Bananas studio logo">
-      </a>
+  <header class="top-bar">
+    <div class="top-bar__inner">
+      <a class="wordmark" href="index.html">Bananas</a>
       <button class="menu-toggle" aria-label="Toggle navigation">Menu</button>
-      <nav class="primary-nav" aria-label="Primary">
-        <a href="conferences.html">Conferences</a>
+      <nav class="nav-links" aria-label="Primary">
         <a href="branding.html">Branding</a>
-        <a href="drawing.html">Drawing</a>
-        <a href="about.html">About Me</a>
-        <a href="contact.html">Contact</a>
+        <a href="conferences.html">Events</a>
+        <a href="drawing.html">Illustrations</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="is-active">Contact</a>
       </nav>
     </div>
   </header>
 
   <main class="page">
-    <div class="section-header">
-      <h2>Contact</h2>
-      <p>Say hello, request a quote, or book live illustration.</p>
-    </div>
-    <div class="contact-grid" style="margin-bottom:20px;">
-      <div class="contact-card">
-        <h3 style="margin-top:0; color:var(--banana);">Direct</h3>
+    <section class="section-heading">
+      <p class="eyebrow">Contact</p>
+      <h2>Book live illustration or start a branding project.</h2>
+    </section>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Direct</h3>
         <p>Email: <a href="mailto:morbendror1@gmail.com">morbendror1@gmail.com</a></p>
-        <p>Instagram: <a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram profile</a></p>
-        <p>Behance: <a href="https://www.behance.net" target="_blank" rel="noreferrer">Behance portfolio</a></p>
-        <p>Location: Haifa, Israel · Available worldwide</p>
+        <p>Instagram / Behance: available on request</p>
+        <p>Based in Haifa, available worldwide.</p>
       </div>
-      <div class="contact-card">
-        <h3 style="margin-top:0; color:var(--banana);">Services</h3>
-        <ul style="margin:0; padding-left:18px; color:#e2e2e2; line-height:1.6;">
-          <li>Live conference drawing & graphic recording</li>
-          <li>Brand identity & logo systems</li>
-          <li>Illustration for print & editorial</li>
-          <li>Digital & social design kits</li>
-        </ul>
+      <div class="info-card">
+        <h3>Services</h3>
+        <p>Live conference drawing &amp; graphic recording, brand identity &amp; logo systems, illustration for print &amp; editorial, and digital/social kits.</p>
       </div>
     </div>
     <form class="contact-form" action="mailto:morbendror1@gmail.com" method="POST" enctype="text/plain">
@@ -57,20 +49,17 @@
         <input id="email" name="email" type="email" required placeholder="you@example.com">
       </div>
       <div class="field">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required placeholder="Project details, timeline, budget..."></textarea>
+        <label for="message">Project details</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Conference date, brand scope, timelines..."></textarea>
       </div>
-      <button class="button" type="submit">Send message</button>
+      <button class="cta" type="submit">Send</button>
     </form>
   </main>
 
   <footer class="footer">
-    Bananas – Illustration & Branding · Let’s create in black + yellow.
+    Bananas — Illustration &amp; Branding — Talk soon.
   </footer>
 
   <script src="assets/js/main.js"></script>
 </body>
 </html>
-
-
-

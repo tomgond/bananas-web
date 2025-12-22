@@ -3,58 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Branding · Bananas Portfolio</title>
+  <title>Branding · Bananas V2</title>
   <link rel="icon" type="image/jpeg" href="images/main/logo-B.jpg">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="page-shell">
-  <header class="site-header">
-    <div class="header-inner">
-            <a class="brand" href="index.html">
-        <img class="brand-logo" src="images/main/main-logo-icon.avif" alt="Bananas studio logo">
-      </a>
+<body class="page-shell" data-page="category" data-category="branding">
+  <header class="top-bar">
+    <div class="top-bar__inner">
+      <a class="wordmark" href="index.html">Bananas</a>
       <button class="menu-toggle" aria-label="Toggle navigation">Menu</button>
-      <nav class="primary-nav" aria-label="Primary">
-        <a href="conferences.html">Conferences</a>
-        <a href="branding.html">Branding</a>
-        <a href="drawing.html">Drawing</a>
-        <a href="about.html">About Me</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="branding.html" class="is-active">Branding</a>
+        <a href="conferences.html">Events</a>
+        <a href="drawing.html">Illustrations</a>
+        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
   <main class="page">
-    <div class="section-header">
-      <h2>Branding</h2>
-      <p>Logos, systems, and playful visual identities.</p>
-    </div>
-    <section class="portfolio-grid">
-      <a class="tile" href="#" aria-label="Athena identity main visual">
-        <img src="images/sections/branding/athena/main-thumb.webp" alt="Athena brand system hero with logo and yellow accents" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Eretz Ir identity main visual">
-        <img src="images/sections/branding/eretz-ir/main-thumb.webp" alt="Eretz Ir civic identity hero graphic" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Gaya hospitality identity main visual">
-        <img src="images/sections/branding/gaya/main-thumb.webp" alt="Gaya hospitality brand hero in yellow and black" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Matanya Bread identity main visual">
-        <img src="images/sections/branding/matanya-bread/main-thumb.webp" alt="Matanya Bread rustic logo hero on yellow background" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Oasis community identity main visual">
-        <img src="images/sections/branding/oasis/main-thumb.webp" alt="Oasis community hub identity hero illustration" loading="lazy">
-      </a>
+    <section class="section-heading">
+      <p class="eyebrow">Branding</p>
+      <h2>Heavy typography and banana accents for bold identities.</h2>
     </section>
+    <p style="max-width:720px; line-height:1.6;">From Athena to Oasis, each system leans on geometric type, stark grids, and purposeful yellow hits. Click any project to open a full-screen case view.</p>
+    <div class="gallery-grid" data-gallery></div>
   </main>
 
   <footer class="footer">
-    Bananas – Illustration & Branding · Identities with a banana-bright twist.
+    Bananas — Illustration &amp; Branding — Systems that stay loud and clear.
   </footer>
+
+  <div class="modal" id="lightbox-modal" aria-hidden="true">
+    <div class="modal__content">
+      <div class="modal__header">
+        <h2 id="lightbox-title">Project</h2>
+        <button class="modal__close" type="button" aria-label="Close lightbox">Close</button>
+      </div>
+      <div id="lightbox-content"></div>
+    </div>
+  </div>
 
   <script src="assets/js/main.js"></script>
 </body>
 </html>
-
-
-

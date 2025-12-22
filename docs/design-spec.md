@@ -1,75 +1,78 @@
-Mor Ben-Dror Portfolio – Grotesca-Style Black & Yellow
-=====================================================
+Bananas V2 — Design & Technical Specification
+=============================================
 
 Overview
 --------
-- Goal: Rebuild Mor Ben-Dror’s “Bananas” portfolio as a bold, black-and-yellow, self-hosted site inspired by Grotesca Design. Keep content/imagery from the Wix site; modernize layout, responsiveness, and micro-interactions.
-- Structure: Multi-page (or routed SPA) with six top-level destinations: Home, Conferences, Branding, Drawing, Digital, About Me, Contact.
-- Vibe: High contrast, playful but clean; banana branding visible via logo and accent motifs.
+- Goal: Rebuild Bananas as a high-impact, full-width digital gallery. Minimal interface, massive imagery, and banana-yellow accents that pop on white.
+- Visual Style: “Bold Studio.” Stark white canvas, off-black ink, geometric headings, and purposeful yellow highlights.
+- Core Principle: The UI must recede; the work dominates via oversized imagery, masonry grids, and a lightbox-first experience.
 
-Brand System
-------------
-- Palette: Primary black `#000000`; banana yellow (extract from logo, temp `#FFD300`); white `#FFFFFF` for legibility. Use CSS variables for consistency.
-- Typography: Grotesque-style sans for headings (e.g., Montserrat Black/ExtraBold); clean sans for body (e.g., Open Sans/Helvetica/Arial). High-contrast text (yellow/white on black, black on yellow).
-- Logo: Banana mark from original site (Wix asset “Bananas.png”, export as `images/banana-logo.png`). Use in header and favicon.
+Design System
+-------------
+- Palette: Canvas `#FFFFFF`, Ink `#111111`, Highlight `#FFD700`, Light Grey `#F4F4F4`, Border `#E6E6E6`.
+- Typography: Headings use heavy geometric sans (`Sora`/`Oswald`/`Inter Tight`, 700–800). Body uses clean sans (`Inter`/`Roboto`, 300–600).
+- Grid: Desktop 12-column fluid grid with 4vw margins and 20px gutters. Mobile collapses to single-column.
+- Motion: Underlines slide in on hover for nav. Gallery zoom on hover. Lightbox fades in, closes via overlay click or Escape.
 
-Navigation & Layout
--------------------
-- Persistent, sticky header (black bg, yellow links). Logo left, menu right. Desktop horizontal; mobile collapses to stacked links or hamburger toggle.
-- Links: Home, Conferences, Branding, Drawing, Digital, About Me, Contact. Logo links to Home.
-- Responsive rules: maintain generous spacing; ensure touch targets on mobile.
+Page Architecture
+-----------------
+- Global Navigation (sticky): Text logo on the left (“Bananas”), links on the right: Branding | Events | Illustrations | About | Contact. Thick yellow underline on hover/active via `::after`.
+- Homepage:
+  - Hero: Split layout. Text left (“Branding & Live Illustration that keeps the room awake.”), full-width hero image right with yellow drop-shadow block.
+  - Featured (Z-pattern): Alternating rows—image left/text right then text left/image right. Outlined CTA plus “Open lightbox” buttons for quick previews.
+  - Gallery Switcher: Pill buttons for Branding / Events / Illustrations. Clicking swaps the masonry grid without page reload.
+  - Contact Summary: Info cards for services and contact call-to-action.
+- Category Pages: Dedicated pages for Branding, Events, and Illustrations reusing the same masonry grid + lightbox. Pages are declared with `data-page="category"` and `data-category="<slug>"` so JS auto-loads the correct data.
+- Project Detail Overlay: Clicking any thumbnail opens a full-screen modal. Title at top, vertically stacked `*-wide.webp` images below at 100% modal width.
 
-Homepage – Portfolio Grid
--------------------------
-- Grid: CSS Grid `repeat(auto-fit, minmax(250px, 1fr))`, gap ~15px, padding ~20px. Adjust min width via media queries for small screens.
-- Tiles: Square “cubes” using `object-fit: cover` to enforce 1:1; wrap each image in a link to category anchor or lightbox.
-- Hover/tap: Subtle lift/zoom + black→yellow overlay.
-  - Base: img transition on transform; pseudo-element overlay with transition.
-  - Hover example:
-    - `img { transition: transform .3s ease; }`
-    - `.portfolio-item::after { background: rgba(0,0,0,.2); transition: background .3s ease; }`
-    - `.portfolio-item:hover::after { background: rgba(255,211,0,.3); }`
-    - `.portfolio-item:hover img { transform: translateY(-5px) scale(1.02); }`
-- Optional: box-shadow on hover; `pointer-events: none` on overlay if needed.
+Directory & Data Model
+----------------------
+- Image convention: `/images/sections/<category>/<project>/<name>-thumb.webp` for grid tiles and `/images/sections/<category>/<project>/<name>-wide.webp` for lightbox slides.
+- Data object (in `assets/js/main.js`):
+  ```js
+  const portfolioData = {
+    branding: [{ id, title, description, images: ['main', ...] }],
+    events: [{ ... }],
+    illustrations: [{ id: 'gallery', ... }]
+  };
+  ```
+  - `images` holds basenames only; JS appends `-thumb.webp` and `-wide.webp`.
+  - Optional `cover` can override the first image for thumbnail selection.
+- Gallery logic:
+  - `loadCategory(categoryName)` clears `.gallery-grid` and injects `.gallery-item` cards, pulling the first (or `cover`) image as the thumbnail.
+  - `openLightbox(category, project)` renders all `images` in wide format inside the modal.
+- Featured logic: `featuredProjects` array defines the Z-pattern rows (category, projectId, image, copy).
 
-Category Pages (Conferences, Branding, Drawing, Digital)
---------------------------------------------------------
-- Template: Title + reuse of grid styles for filtered works. Optional figcaptions or lightbox. Keep hover behavior consistent with Home.
-- Content: Populate with corresponding projects/images from original site (Conferences live sketches; Branding logos/identities; Drawing illustrations; Digital web/social work).
+CSS Highlights
+--------------
+- Base: White canvas, black ink, yellow highlights. Sticky header with blurred backdrop and sliding underline.
+- Hero: 12-col grid with oversized type and banana-yellow box shadow on the hero image.
+- Featured (Z-pattern):
+  ```css
+  .featured-row { display:flex; align-items:center; gap:5%; }
+  .featured-row:nth-child(odd) { flex-direction:row-reverse; }
+  .featured-media img { box-shadow:18px 18px 0 #FFD700; }
+  ```
+- Masonry (pure CSS columns):
+  ```css
+  .gallery-grid { column-count:3; column-gap:20px; }
+  .gallery-item { break-inside:avoid; position:relative; margin-bottom:20px; }
+  .gallery-item .overlay { background:rgba(0,0,0,0.55); opacity:0; transition:.22s; }
+  .gallery-item:hover img { transform:scale(1.03); }
+  .gallery-item:hover .overlay { opacity:1; }
+  @media (max-width:768px){ .gallery-grid{ column-count:1; } }
+  ```
+- Lightbox: Full-screen modal (`#lightbox-modal`) with scrollable stack of `.lightbox-img` at 100% width.
 
-About Me
---------
-- Layout: Single-column or split portrait + copy. Consider yellow hero/banner with black heading; body on dark/neutral for readability.
-- Content: Bio, Bananas studio story, services; include portrait or self-illustration. Optional low-opacity banana motif or border in yellow.
-
-Contact
--------
-- Content: Email (mailto), optional phone/city, social links (Instagram, Behance, Facebook).
-- Form (simple): Name, Email, Message, Submit. Default to `mailto:` action or integrate service later (Formspree/EmailJS).
-- Styling: Yellow labels/borders, dark inputs, white text; yellow CTA button with black text, lighter yellow on hover.
-
-Page Transitions
-----------------
-- Simple fade between pages: add `fade-out` class on link click, delay navigation by ~0.4–0.5s; optional initial fade-in on load.
-- Consider View Transition API later for richer motion if browser support allows.
-
-Assets & Preparation
+Implementation Notes
 --------------------
-- Download from Wix: banana logo (Bananas.png) and all portfolio images per category; save to `images/` with descriptive names. Create square thumbnails; keep high-res originals for lightbox if used. Add accurate `alt` text.
-- Optimize images; enable `loading="lazy"` for below-fold items. Add favicon (logo).
+- Fonts loaded via Google: `Sora` (headings) and `Inter` (body).
+- JS uses dataset attributes to detect the page type and initial category; homepage pills swap categories instantly.
+- Mobile: nav collapses behind a `Menu` toggle; masonry drops to a single column.
+- Relative image paths (`images/sections/...`) allow local file viewing without a server root.
 
-Tech & Implementation Notes
----------------------------
-- Can ship as static HTML/CSS/JS (fast, simple) or SPA (React/Vue + router). If SPA, map routes to same URL structure and reuse grid components; use transition wrappers.
-- Shared styles: global CSS with variables for colors, spacing, and typography. Consider SCSS but not required.
-- Accessibility: High contrast, focus states for links/buttons, semantic nav/header/main/footer, labeled form fields.
-- Performance: Use optimized assets, avoid oversized images, keep transitions short (<0.6s).
-
-Suggested Next Steps
---------------------
-1) Extract brand yellow from logo and lock palette variables.  
-2) Gather and optimize all images; create thumbnails.  
-3) Build shared header/footer + base styles; implement Home grid and hover effects.  
-4) Create category pages with filtered content; add About and Contact layouts.  
-5) Add fade transitions script; test responsiveness and accessibility across desktop/mobile.  
-6) Wire contact CTA (mailto or service) and generate favicon.
+Next Steps & Extensibility
+--------------------------
+- Add a new category by creating `/images/sections/<new>/project/` folders, adding a data array entry in `portfolioData`, and (optionally) adding a pill on the homepage.
+- Expand `featuredProjects` for more Z-pattern rows.
+- For digital/social kits, replicate the same naming convention and add a `digital` category (see `digital.html` helper notes).

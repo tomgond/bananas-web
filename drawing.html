@@ -3,71 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drawing · Bananas Portfolio</title>
+  <title>Illustrations · Bananas V2</title>
   <link rel="icon" type="image/jpeg" href="images/main/logo-B.jpg">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="page-shell">
-  <header class="site-header">
-    <div class="header-inner">
-            <a class="brand" href="index.html">
-        <img class="brand-logo" src="images/main/main-logo-icon.avif" alt="Bananas studio logo">
-      </a>
+<body class="page-shell" data-page="category" data-category="illustrations">
+  <header class="top-bar">
+    <div class="top-bar__inner">
+      <a class="wordmark" href="index.html">Bananas</a>
       <button class="menu-toggle" aria-label="Toggle navigation">Menu</button>
-      <nav class="primary-nav" aria-label="Primary">
-        <a href="conferences.html">Conferences</a>
+      <nav class="nav-links" aria-label="Primary">
         <a href="branding.html">Branding</a>
-        <a href="drawing.html">Drawing</a>
-        <a href="about.html">About Me</a>
+        <a href="conferences.html">Events</a>
+        <a href="drawing.html" class="is-active">Illustrations</a>
+        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
   <main class="page">
-    <div class="section-header">
-      <h2>Drawing</h2>
-      <p>Illustrations, books, and playful sketches.</p>
-    </div>
-    <section class="portfolio-grid">
-      <a class="tile" href="#" aria-label="Neighborhood storybook spread illustration">
-        <img src="images/sections/illustrations/07-thumb.webp" alt="Neighborhood storybook spread with warm yellow accents" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Playful watermelon character illustration">
-        <img src="images/sections/illustrations/08-thumb.webp" alt="Playful watermelon character illustration in marker" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Horse rider illustration">
-        <img src="images/sections/illustrations/09-thumb.webp" alt="Horse rider illustration with bold black linework" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Ink portrait series">
-        <img src="images/sections/illustrations/1-recovered-thumb.webp" alt="Ink portrait series with expressive strokes" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Graphic portrait with cutout shapes">
-        <img src="images/sections/illustrations/10-thumb.webp" alt="Graphic portrait illustration built from cutout shapes" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Sketchbook line drawing">
-        <img src="images/sections/illustrations/11-thumb.webp" alt="Loose sketchbook line drawing in yellow and black" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Travel diary spread illustration">
-        <img src="images/sections/illustrations/35-thumb.webp" alt="Travel diary spread with layered textures" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Editorial illustration of people">
-        <img src="images/sections/illustrations/39-thumb.webp" alt="Editorial illustration of people in a city" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="People sketch series">
-        <img src="images/sections/illustrations/pepole-done1-thumb.webp" alt="Series of expressive people sketches" loading="lazy">
-      </a>
+    <section class="section-heading">
+      <p class="eyebrow">Illustrations</p>
+      <h2>Sketchbook spreads, editorial marks, and layered stories.</h2>
     </section>
+    <p style="max-width:760px; line-height:1.6;">A single gallery built from all <code>*-thumb.webp</code> files in <code>/images/sections/illustrations/gallery/</code>. Click to open the wide sequences.</p>
+    <div class="gallery-grid" data-gallery></div>
   </main>
 
   <footer class="footer">
-    Bananas – Illustration & Branding · Drawing stories in yellow + black.
+    Bananas — Illustration &amp; Branding — Drawing stories in black, white, and banana yellow.
   </footer>
+
+  <div class="modal" id="lightbox-modal" aria-hidden="true">
+    <div class="modal__content">
+      <div class="modal__header">
+        <h2 id="lightbox-title">Project</h2>
+        <button class="modal__close" type="button" aria-label="Close lightbox">Close</button>
+      </div>
+      <div id="lightbox-content"></div>
+    </div>
+  </div>
 
   <script src="assets/js/main.js"></script>
 </body>
 </html>
-
-
-
-

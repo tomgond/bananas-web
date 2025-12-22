@@ -3,70 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conferences - Bananas Portfolio</title>
+  <title>Events · Bananas V2</title>
   <link rel="icon" type="image/jpeg" href="images/main/logo-B.jpg">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="page-shell">
-  <header class="site-header">
-    <div class="header-inner">
-            <a class="brand" href="index.html">
-        <img class="brand-logo" src="images/main/main-logo-icon.avif" alt="Bananas studio logo">
-      </a>
+<body class="page-shell" data-page="category" data-category="events">
+  <header class="top-bar">
+    <div class="top-bar__inner">
+      <a class="wordmark" href="index.html">Bananas</a>
       <button class="menu-toggle" aria-label="Toggle navigation">Menu</button>
-      <nav class="primary-nav" aria-label="Primary">
-        <a href="conferences.html">Conferences</a>
+      <nav class="nav-links" aria-label="Primary">
         <a href="branding.html">Branding</a>
-        <a href="drawing.html">Drawing</a>
-        <a href="about.html">About Me</a>
+        <a href="conferences.html" class="is-active">Events</a>
+        <a href="drawing.html">Illustrations</a>
+        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
   <main class="page">
-    <div class="section-header">
-      <h2>Conferences</h2>
-      <p>Live graphic recording and on-the-spot illustrations.</p>
-    </div>
-    <section class="portfolio-grid">
-      <a class="tile" href="#" aria-label="Autojob HR Summit live sketch wall">
-        <img src="images/sections/events/autojob/main-thumb.webp" alt="Live visual wall from the Autojob HR summit" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Building on Quality 2025 keynote board">
-        <img src="images/sections/events/building-on-quality-2025/main-thumb.webp" alt="Building on Quality 2025 keynote storyboard in yellow markers" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Yearly planners convention sketch mural">
-        <img src="images/sections/events/planners-2025/main-thumb.webp" alt="Live illustrated wall for a planners yearly convention" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Health IL 2019 keynote capture">
-        <img src="images/sections/events/health-il-2019/main-thumb.webp" alt="Health IL 2019 keynote captured as a visual storyboard" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Jewish Agency strategy lab wall">
-        <img src="images/sections/events/jewish-agency/main-thumb.webp" alt="Jewish Agency strategy lab wall filled with live illustration" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Kayamut summit climate illustration">
-        <img src="images/sections/events/kayamut/main-thumb.webp" alt="Kayamut summit board showing climate pledges in marker" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Kayamut 2022 illustrated wall">
-        <img src="images/sections/events/kayamut-2022/main-thumb.webp" alt="Kayamut 2022 conference wall filled with illustrated notes" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Community climate forum board">
-        <img src="images/sections/events/kayamut-community-2024/main-thumb.webp" alt="Kayamut Community 2024 climate forum visual notes" loading="lazy">
-      </a>
-      <a class="tile" href="#" aria-label="Ofek leadership summit graphic recording">
-        <img src="images/sections/events/ofek/main-thumb.webp" alt="Ofek leadership summit graphic recording board" loading="lazy">
-      </a>
+    <section class="section-heading">
+      <p class="eyebrow">Events</p>
+      <h2>Live illustration walls that keep the room awake.</h2>
     </section>
+    <p style="max-width:760px; line-height:1.6;">Masonry grid of every event project. Hover for titles, click for the full-screen lightbox. Files follow the <code>-thumb</code> and <code>-wide</code> convention for instant swaps.</p>
+    <div class="gallery-grid" data-gallery></div>
   </main>
 
   <footer class="footer">
-    Bananas – Illustration & Branding · Live conference visuals that keep the room awake.
+    Bananas — Illustration &amp; Branding — Conference visuals, live and loud.
   </footer>
+
+  <div class="modal" id="lightbox-modal" aria-hidden="true">
+    <div class="modal__content">
+      <div class="modal__header">
+        <h2 id="lightbox-title">Project</h2>
+        <button class="modal__close" type="button" aria-label="Close lightbox">Close</button>
+      </div>
+      <div id="lightbox-content"></div>
+    </div>
+  </div>
 
   <script src="assets/js/main.js"></script>
 </body>
 </html>
-
-
-

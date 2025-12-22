@@ -3,52 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bananas Portfolio - Mor Ben-Dror</title>
+  <title>Bananas V2 · Branding & Live Illustration</title>
   <link rel="icon" type="image/jpeg" href="images/main/logo-B.jpg">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="page-shell">
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html">
-        <img class="brand-logo" src="images/main/main-logo-icon.avif" alt="Bananas studio logo">
-      </a>
+<body class="page-shell" data-page="home">
+  <header class="top-bar">
+    <div class="top-bar__inner">
+      <a class="wordmark" href="index.html">Bananas</a>
       <button class="menu-toggle" aria-label="Toggle navigation">Menu</button>
-      <nav class="primary-nav" aria-label="Primary">
-        <a href="conferences.html">Conferences</a>
+      <nav class="nav-links" aria-label="Primary">
         <a href="branding.html">Branding</a>
-        <a href="drawing.html">Drawing</a>
-        <a href="about.html">About Me</a>
+        <a href="conferences.html">Events</a>
+        <a href="drawing.html">Illustrations</a>
+        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
   <main class="page">
-    <img class="main-logo" src="images/main/main-logo.avif" alt="Bananas studio logo">
-
-    <section class="portfolio-grid" id="portfolio">
-      <a class="tile" href="conferences.html" aria-label="Conferences">
-        <img src="images/sections/events/building-on-quality-2025/planning25-072-thumb.webp" alt="Building on Quality 2025 live sketch wall" loading="lazy">
-        <div class="tile-label">Conferences</div>
-      </a>
-      <a class="tile" href="branding.html" aria-label="Branding">
-        <img src="images/sections/branding/athena/03-thumb.webp" alt="Athena identity mockup in black and yellow" loading="lazy">
-        <div class="tile-label">Branding</div>
-      </a>
-      <a class="tile" href="drawing.html" aria-label="Drawing">
-        <img src="images/sections/illustrations/07-thumb.webp" alt="Neighborhood illustration spread with bold yellow details" loading="lazy">
-        <div class="tile-label">Drawing</div>
-      </a>
-      <a class="tile" href="ongoing-projects.html" aria-label="Company ongoing projects, book design and paging" style="--tile-bg: radial-gradient(circle at 30% 30%, rgba(255,211,0,0.25), rgba(0,0,0,0.92) 70%), linear-gradient(135deg, rgba(255,211,0,0.18), rgba(0,0,0,0.96));">
-        <div class="tile-label">Ongoing Projects / Book Design &amp; Paging</div>
-      </a>
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Bold studio</p>
+        <h1>Branding &amp; Live Illustration that keeps the room awake.</h1>
+        <p>Full-width visuals, banana yellow highlights, and geometric type that let the work dominate. Bananas V2 is a clean, gallery-first rebuild for Mor Ben-Dror.</p>
+        <div class="hero-actions">
+          <a class="cta" href="#gallery">View the gallery</a>
+          <a class="cta is-outline" href="contact.html">Book a live illustrator</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="images/sections/events/building-on-quality-2025/planning25-275-wide.webp" alt="Live illustrated conference wall for Building on Quality 2025">
+      </div>
     </section>
+
+    <section class="featured">
+      <div class="section-heading">
+        <p class="eyebrow">Featured</p>
+        <h2>The Z-pattern, oversized and bright</h2>
+      </div>
+      <div class="featured-stack" data-featured-container></div>
+    </section>
+
+    <section id="gallery">
+      <div class="section-heading">
+        <p class="eyebrow">Gallery</p>
+        <h2>Switch categories without leaving the page</h2>
+      </div>
+      <div class="pill-row">
+        <button class="pill is-active" data-category-toggle="events">Events</button>
+        <button class="pill" data-category-toggle="branding">Branding</button>
+        <button class="pill" data-category-toggle="illustrations">Illustrations</button>
+      </div>
+      <div class="gallery-grid" data-gallery></div>
+    </section>
+
+    <section class="section-heading">
+      <p class="eyebrow">About &amp; contact</p>
+      <h2>Studio in Haifa, working worldwide</h2>
+    </section>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Services</h3>
+        <p>Live conference drawing, brand systems, illustration for print/editorial, and digital kits.</p>
+      </div>
+      <div class="info-card">
+        <h3>Contact</h3>
+        <p>Email <a href="mailto:morbendror1@gmail.com">morbendror1@gmail.com</a> for bookings or collaborations.</p>
+        <p><a href="contact.html">Open contact page →</a></p>
+      </div>
+    </div>
   </main>
 
   <footer class="footer">
-    Bananas - Illustration & Branding - Mor Ben-Dror - Crafted with black & yellow.
+    Bananas — Illustration &amp; Branding — Built for maximum contrast.
   </footer>
+
+  <div class="modal" id="lightbox-modal" aria-hidden="true">
+    <div class="modal__content">
+      <div class="modal__header">
+        <h2 id="lightbox-title">Project</h2>
+        <button class="modal__close" type="button" aria-label="Close lightbox">Close</button>
+      </div>
+      <div id="lightbox-content"></div>
+    </div>
+  </div>
 
   <script src="assets/js/main.js"></script>
 </body>

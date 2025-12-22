@@ -3,56 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital · Bananas Portfolio</title>
+  <title>Digital · Bananas V2</title>
   <link rel="icon" type="image/jpeg" href="images/main/logo-B.jpg">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="page-shell">
-  <header class="site-header">
-    <div class="header-inner">
-            <a class="brand" href="index.html">
-        <img class="brand-logo" src="images/main/main-logo-icon.avif" alt="Bananas studio logo">
-      </a>
+  <header class="top-bar">
+    <div class="top-bar__inner">
+      <a class="wordmark" href="index.html">Bananas</a>
       <button class="menu-toggle" aria-label="Toggle navigation">Menu</button>
-      <nav class="primary-nav" aria-label="Primary">
-        <a href="conferences.html">Conferences</a>
+      <nav class="nav-links" aria-label="Primary">
         <a href="branding.html">Branding</a>
-        <a href="drawing.html">Drawing</a>
-        <a href="about.html">About Me</a>
+        <a href="conferences.html">Events</a>
+        <a href="drawing.html">Illustrations</a>
+        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
   <main class="page">
-    <div class="section-header">
-      <h2>Digital</h2>
-      <p>Web, social, and motion-friendly visuals.</p>
-    </div>
-    <section class="portfolio-grid">
-      <a class="tile" id="ui" href="#" style="--tile-bg: linear-gradient(135deg, rgba(255,211,0,.32), rgba(0,0,0,.93)), radial-gradient(circle at 65% 25%, rgba(255,211,0,.22), transparent 50%);">
-      </a>
-      <a class="tile" id="campaign" href="#" style="--tile-bg: radial-gradient(circle at 35% 60%, rgba(255,211,0,.38), rgba(0,0,0,.9) 60%), repeating-linear-gradient(45deg, rgba(255,255,255,.06), rgba(255,255,255,.06) 10px, transparent 10px, transparent 18px);">
-      </a>
-      <a class="tile" id="motion" href="#" style="--tile-bg: linear-gradient(150deg, rgba(255,211,0,.25), rgba(0,0,0,.94)), radial-gradient(circle at 70% 40%, rgba(255,211,0,.3), transparent 55%);">
-      </a>
-      <a class="tile" id="app" href="#" style="--tile-bg: linear-gradient(120deg, rgba(255,211,0,.28), rgba(0,0,0,.9)), radial-gradient(circle at 25% 75%, rgba(255,255,255,.07), transparent 45%);">
-      </a>
-      <a class="tile" id="email" href="#" style="--tile-bg: radial-gradient(circle at 60% 30%, rgba(255,211,0,.35), rgba(0,0,0,.92) 55%), linear-gradient(135deg, rgba(255,211,0,.2), rgba(0,0,0,.9));">
-      </a>
-      <a class="tile" id="banner" href="#" style="--tile-bg: linear-gradient(145deg, rgba(255,211,0,.22), rgba(0,0,0,.95)), radial-gradient(circle at 50% 50%, rgba(255,211,0,.3), transparent 55%);">
-      </a>
+    <section class="section-heading">
+      <p class="eyebrow">Digital</p>
+      <h2>Digital kits now follow the same gallery logic.</h2>
     </section>
+    <p style="max-width:760px; line-height:1.6;">Digital and social assets share the same image naming convention (<code>-thumb</code> / <code>-wide</code>) and can be added as a new category in <code>assets/js/main.js</code> without changing layouts.</p>
+    <div class="info-card">
+      <h3>Add a category</h3>
+      <ol style="padding-left:18px; line-height:1.6; margin:0;">
+        <li>Create <code>/images/sections/digital/&lt;project&gt;/</code> folders with thumb + wide pairs.</li>
+        <li>Add a <code>digital</code> array to <code>portfolioData</code> with IDs, titles, descriptions, and image basenames.</li>
+        <li>Create a page with <code>data-category="digital"</code> or add a filter pill on the homepage.</li>
+      </ol>
+    </div>
   </main>
 
   <footer class="footer">
-    Bananas – Illustration & Branding · Digital assets with punchy contrast.
+    Bananas — Illustration &amp; Branding — Digital kits note.
   </footer>
 
   <script src="assets/js/main.js"></script>
 </body>
 </html>
-
-
-
-
